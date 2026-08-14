@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lomba Tembak Piala Panglima TNI 2026</title>
+<style>
+  :root{
+    --bg:#0E1210;
+    --panel:#161B17;
+    --panel-2:#1D2420;
+    --line:#2A322C;
+    --ink:#E9EAE3;
+    --ink-dim:#8C9A8A;
+    --ink-faint:#5B6660;
+    --olive:#5C7A3A;
+    --olive-bright:#8FB35A;
+    --amber:#C7852E;
+    --amber-bright:#E5A94A;
+    --mono: ui-monospace, "SF Mono", "Cascadia Mono", "Roboto Mono", Consolas, monospace;
+    --sans: -apple-system, "Segoe UI", "Inter", Helvetica, Arial, sans-serif;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    background:
+      radial-gradient(1000px 500px at 50% -10%, rgba(92,122,58,0.12), transparent 60%),
+      var(--bg);
+    color:var(--ink);
+    font-family:var(--sans);
+    padding:32px 18px 60px;
+    min-height:100vh;
+  }
+  .wrap{max-width:520px; margin:0 auto;}
+
+  header{text-align:center; margin-bottom:30px;}
+  .eyebrow{
+    font-family:var(--mono); font-size:11px; letter-spacing:.18em;
+    color:var(--olive-bright); text-transform:uppercase; margin-bottom:10px;
+  }
+  h1{font-size:24px; font-weight:800; line-height:1.25; margin-bottom:8px;}
+  .subtitle{font-size:13.5px; color:var(--ink-dim); line-height:1.6;}
+  .subtitle b{color:var(--ink);}
+
+  .section-title{
+    font-family:var(--mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--ink-faint); margin:32px 0 12px; display:flex; align-items:center; gap:10px;
+  }
+  .section-title::after{content:""; flex:1; height:1px; background:var(--line);}
+
+  .btn-list{display:flex; flex-direction:column; gap:10px;}
+
+  .btn{
+    display:flex; align-items:center; justify-content:space-between; gap:12px;
+    background:var(--panel); border:1px solid var(--line); border-radius:10px;
+    padding:15px 16px; text-decoration:none; color:var(--ink);
+    transition:.15s; position:relative; overflow:hidden;
+  }
+  .btn:active{transform:scale(0.98);}
+  .btn .label{font-size:14.5px; font-weight:700;}
+  .btn .meta{font-size:11.5px; color:var(--ink-faint); margin-top:2px; font-family:var(--mono);}
+  .btn .arrow{font-size:18px; color:var(--ink-faint); flex-shrink:0;}
+
+  .btn.daftar{border-left:3px solid var(--olive);}
+  .btn.daftar:hover{border-color:var(--olive);}
+  .btn.daftar .arrow{color:var(--olive-bright);}
+
+  .btn.juknis{border-left:3px solid var(--amber);}
+  .btn.juknis .arrow{color:var(--amber-bright);}
+
+  .btn.wa{
+    border-left:3px solid #3DA35D; background:var(--panel-2);
+  }
+  .btn.wa .arrow{color:#5BC97F;}
+
+  .placeholder-tag{
+    font-family:var(--mono); font-size:9.5px; background:rgba(199,133,46,0.18);
+    color:var(--amber-bright); padding:2px 6px; border-radius:4px; margin-left:8px;
+  }
+
+  .info-box{
+    background:var(--panel-2); border:1px solid var(--line); border-radius:8px;
+    padding:14px 16px; margin-top:28px; font-size:12.5px; color:var(--ink-dim); line-height:1.7;
+  }
+  .info-box .row{display:flex; justify-content:space-between; gap:10px; padding:3px 0;}
+  .info-box .row span:first-child{color:var(--ink-faint); font-family:var(--mono); font-size:11px;}
+  .info-box .row span:last-child{color:var(--ink); text-align:right;}
+
+  footer{
+    text-align:center; margin-top:34px; font-size:11px; color:var(--ink-faint);
+    font-family:var(--mono); line-height:1.8;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="eyebrow">Prakasa Shooting Club &times; Divif 1 Kostrad</div>
+    <h1>Lomba Tembak Piala<br>Panglima TNI 2026</h1>
+    <div class="subtitle">
+      <b>18&ndash;20 September 2026</b><br>
+      Lapbak Prakasa Shooting Club, Cilodong &amp; Lapbak Kartika Divif 1 Kostrad
+    </div>
+  </header>
+
+  <!-- PENDAFTARAN -->
+  <div class="section-title">Pendaftaran</div>
+  <div class="btn-list">
+    <a class="btn daftar" href="https://docs.google.com/forms/d/e/1FAIpQLSf-8a7a9wJLDrttZmlmlqaM0yGbptX30emImt-Fp6J6a6OOrQ/viewform" target="_blank" rel="noopener">
+      <div>
+        <div class="label">Senapan</div>
+        <div class="meta">Danyonif 328 &amp; Danyon Armed 10</div>
+      </div>
+      <div class="arrow">&rarr;</div>
+    </a>
+    <a class="btn daftar" href="https://docs.google.com/forms/d/e/1FAIpQLScvUkcs_9OBbdSg27jnXYKX9_UAO2z63Z3JZ0YlrMc6n2LyiQ/viewform" target="_blank" rel="noopener">
+      <div>
+        <div class="label">Pistol</div>
+        <div class="meta">Kasbrig 17 &amp; Danyonkav 1/1 Kostrad</div>
+      </div>
+      <div class="arrow">&rarr;</div>
+    </a>
+    <a class="btn daftar" href="https://docs.google.com/forms/d/e/1FAIpQLSemCYkBHVe-rTzShjVqgdkGlCmw80EK9R34MyITHgrYpBuT3Q/viewform" target="_blank" rel="noopener">
+      <div>
+        <div class="label">Tembak Reaksi IPSC Level II</div>
+        <div class="meta">Danyon Armed 9/1 Kostrad</div>
+      </div>
+      <div class="arrow">&rarr;</div>
+    </a>
+    <a class="btn daftar" href="https://docs.google.com/forms/d/e/1FAIpQLSf2a57X85o12tWyOfkZRdpBjbzCqwFJiWRaDmARZXyZasfUVw/viewform" target="_blank" rel="noopener">
+      <div>
+        <div class="label">Air Rifle</div>
+        <div class="meta">Danyonzipur 9/1 Kostrad &amp; Perbakin</div>
+      </div>
+      <div class="arrow">&rarr;</div>
+    </a>
+  </div>
+
+  <!-- JUKNIS -->
+  <div class="section-title">Juknis (Petunjuk Teknis)</div>
+  <div class="btn-list">
+    <a class="btn juknis" href="#" target="_blank" rel="noopener">
+      <div>
+        <div class="label">Juknis Senapan <span class="placeholder-tag">LINK BELUM DIISI</span></div>
+        <div class="meta">PDF</div>
+      </div>
+      <div class="arrow">&darr;</div>
+    </a>
+    <a class="btn juknis" href="#" target="_blank" rel="noopener">
+      <div>
+        <div class="label">Juknis Pistol <span class="placeholder-tag">LINK BELUM DIISI</span></div>
+        <div class="meta">PDF</div>
+      </div>
+      <div class="arrow">&darr;</div>
+    </a>
+    <a class="btn juknis" href="#" target="_blank" rel="noopener">
+      <div>
+        <div class="label">Juknis IPSC Level II <span class="placeholder-tag">LINK BELUM DIISI</span></div>
+        <div class="meta">PDF</div>
+      </div>
+      <div class="arrow">&darr;</div>
+    </a>
+    <a class="btn juknis" href="#" target="_blank" rel="noopener">
+      <div>
+        <div class="label">Juknis Air Rifle <span class="placeholder-tag">LINK BELUM DIISI</span></div>
+        <div class="meta">PDF</div>
+      </div>
+      <div class="arrow">&darr;</div>
+    </a>
+  </div>
+
+  <!-- KONTAK ADMIN -->
+  <div class="section-title">Kontak Admin</div>
+  <div class="btn-list">
+    <a class="btn wa" href="https://wa.me/6281235393767" target="_blank" rel="noopener">
+      <div>
+        <div class="label">Hubungi Dedi</div>
+        <div class="meta">WhatsApp</div>
+      </div>
+      <div class="arrow">&#128172;</div>
+    </a>
+    <a class="btn wa" href="https://wa.me/6281285838704" target="_blank" rel="noopener">
+      <div>
+        <div class="label">Hubungi Rizky</div>
+        <div class="meta">WhatsApp</div>
+      </div>
+      <div class="arrow">&#128172;</div>
+    </a>
+  </div>
+
+  <div class="info-box">
+    <div class="row"><span>PENDAFTARAN ONLINE TUTUP</span><span>18 Sep 00.00 WIB</span></div>
+    <div class="row"><span>DAFTAR DI TEMPAT (OTS) BUKA</span><span>18 Sep 06.00 WIB</span></div>
+    <div class="row"><span>SEKRETARIAT</span><span>Jl. Raya Bogor Jakarta KM 39, Cilodong</span></div>
+  </div>
+
+  <footer>
+    Prakasa Shooting Club &middot; prakasashootingclub01@gmail.com
+  </footer>
+
+</div>
+</body>
+</html>

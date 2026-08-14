@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lomba Tembak Piala Panglima TNI 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #15170f;
+    --bg-panel: #1d2117;
+    --line: #3a4030;
+    --brass: #c68a2e;
+    --brass-dim: #8a611f;
+    --ink: #e9e6d8;
+    --ink-dim: #9ba488;
+    --alert: #8a3324;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:
+      radial-gradient(circle at 15% -10%, rgba(198,138,46,0.08), transparent 45%),
+      var(--bg);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', sans-serif;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:640px; margin:0 auto; padding:0 20px 60px;}
+
+  /* ---------- HERO ---------- */
+  header{
+    padding:44px 20px 36px;
+    text-align:center;
+    border-bottom:1px solid var(--line);
+    position:relative;
+    overflow:hidden;
+  }
+  .reticle{
+    position:absolute; top:-70px; right:-70px;
+    width:220px; height:220px;
+    border:1px solid rgba(198,138,46,0.18);
+    border-radius:50%;
+  }
+  .reticle::before, .reticle::after{
+    content:''; position:absolute; background:rgba(198,138,46,0.18);
+  }
+  .reticle::before{ top:50%; left:-14px; right:-14px; height:1px; }
+  .reticle::after{ left:50%; top:-14px; bottom:-14px; width:1px; }
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px; letter-spacing:.22em; text-transform:uppercase;
+    color:var(--brass); margin-bottom:14px;
+  }
+  h1{
+    font-family:'Oswald', sans-serif;
+    font-weight:700;
+    font-size:clamp(28px, 7vw, 40px);
+    letter-spacing:.01em;
+    text-transform:uppercase;
+    line-height:1.08;
+  }
+  h1 span{color:var(--brass);}
+  .venue{
+    margin-top:16px;
+    font-size:14px;
+    color:var(--ink-dim);
+  }
+  .datestrip{
+    margin-top:22px;
+    display:inline-flex; gap:0;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    border:1px solid var(--line);
+  }
+  .datestrip div{padding:8px 16px;}
+  .datestrip div:first-child{border-right:1px solid var(--line); color:var(--brass);}
+
+  /* ---------- SECTION LABELS ---------- */
+  .section{padding-top:40px;}
+  .section-head{
+    display:flex; align-items:baseline; gap:10px;
+    margin-bottom:16px;
+  }
+  .section-head .tag{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px; color:var(--brass); border:1px solid var(--brass-dim);
+    padding:2px 7px;
+  }
+  .section-head h2{
+    font-family:'Oswald', sans-serif;
+    font-size:15px; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--ink);
+  }
+
+  /* ---------- KATEGORI CARDS ---------- */
+  .kategori{
+    display:grid; gap:10px;
+  }
+  .kat-card{
+    background:var(--bg-panel);
+    border:1px solid var(--line);
+    padding:16px 18px;
+    display:flex; align-items:center; justify-content:space-between; gap:14px;
+    text-decoration:none;
+    color:var(--ink);
+    transition:border-color .15s ease, background .15s ease;
+    position:relative;
+  }
+  .kat-card:hover{ border-color:var(--brass-dim); background:#22261a; }
+  .kat-card:focus-visible{ outline:2px solid var(--brass); outline-offset:2px; }
+  .kat-left{display:flex; align-items:center; gap:14px;}
+  .kat-code{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px; color:var(--brass);
+    border:1px solid var(--brass-dim);
+    width:34px; height:34px;
+    display:flex; align-items:center; justify-content:center;
+    flex-shrink:0;
+  }
+  .kat-name{font-family:'Oswald', sans-serif; font-size:17px; font-weight:600; letter-spacing:.02em;}
+  .kat-sub{font-size:12px; color:var(--ink-dim); margin-top:2px;}
+  .kat-arrow{font-family:'IBM Plex Mono', monospace; color:var(--brass); font-size:15px;}
+
+  /* ---------- JUKNIS ---------- */
+  .juknis-list{display:grid; gap:8px;}
+  .juknis-item{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:12px 16px;
+    border:1px solid var(--line);
+    text-decoration:none; color:var(--ink);
+    font-size:14px;
+  }
+  .juknis-item:hover{border-color:var(--brass-dim);}
+  .juknis-item .dl{font-family:'IBM Plex Mono', monospace; font-size:11px; color:var(--ink-dim);}
+
+  /* ---------- ADMIN ---------- */
+  .admin-row{display:grid; grid-template-columns:1fr 1fr; gap:10px;}
+  .admin-btn{
+    display:flex; flex-direction:column; align-items:center; gap:4px;
+    padding:16px 10px;
+    border:1px solid var(--brass-dim);
+    text-decoration:none; color:var(--ink);
+    font-size:13px;
+    text-align:center;
+  }
+  .admin-btn:hover{background:rgba(198,138,46,0.08);}
+  .admin-btn .nm{font-family:'Oswald', sans-serif; font-weight:600; letter-spacing:.03em; text-transform:uppercase; font-size:14px;}
+  .admin-btn .num{font-family:'IBM Plex Mono', monospace; color:var(--ink-dim); font-size:12px;}
+
+  /* ---------- NOTICE ---------- */
+  .notice{
+    margin-top:40px;
+    border-left:2px solid var(--alert);
+    padding:12px 16px;
+    font-size:13px;
+    color:var(--ink-dim);
+    background:rgba(138,51,36,0.06);
+  }
+  .notice b{color:var(--ink);}
+
+  footer{
+    text-align:center;
+    padding:36px 20px 10px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    color:var(--ink-dim);
+    letter-spacing:.05em;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="reticle" aria-hidden="true"></div>
+  <div class="eyebrow">Divif 1 Kostrad &times; Prakasa Shooting Club</div>
+  <h1>Lomba Tembak<br>Piala <span>Panglima TNI</span><br>2026</h1>
+  <div class="venue">Lapbak Prakasa Shooting Club, Cilodong &mdash; Lapbak Kartika Divif 1 Kostrad</div>
+  <div class="datestrip">
+    <div>18&ndash;20 SEP 2026</div>
+    <div>DEPOK, JAWA BARAT</div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <!-- ============ PENDAFTARAN ============ -->
+  <section class="section" id="daftar">
+    <div class="section-head">
+      <span class="tag">01</span>
+      <h2>Pendaftaran per Kategori</h2>
+    </div>
+    <div class="kategori">
+
+      <a class="kat-card" href="GANTI_LINK_FORM_SENAPAN" target="_blank" rel="noopener">
+        <div class="kat-left">
+          <div class="kat-code">SN</div>
+          <div>
+            <div class="kat-name">Senapan</div>
+            <div class="kat-sub">100M/300M &middot; 600M Tactical Prone</div>
+          </div>
+        </div>
+        <div class="kat-arrow">&rarr;</div>
+      </a>
+
+      <a class="kat-card" href="GANTI_LINK_FORM_PISTOL" target="_blank" rel="noopener">
+        <div class="kat-left">
+          <div class="kat-code">PS</div>
+          <div>
+            <div class="kat-name">Pistol</div>
+            <div class="kat-sub">20M Eksekutif &middot; Duel Falling Plate &middot; VIP</div>
+          </div>
+        </div>
+        <div class="kat-arrow">&rarr;</div>
+      </a>
+
+      <a class="kat-card" href="GANTI_LINK_FORM_IPSC" target="_blank" rel="noopener">
+        <div class="kat-left">
+          <div class="kat-code">RX</div>
+          <div>
+            <div class="kat-name">Tembak Reaksi IPSC Level II</div>
+            <div class="kat-sub">Open &middot; Standard &middot; Optic &middot; Production &middot; PCC Optic</div>
+          </div>
+        </div>
+        <div class="kat-arrow">&rarr;</div>
+      </a>
+
+      <a class="kat-card" href="GANTI_LINK_FORM_AIRRIFLE" target="_blank" rel="noopener">
+        <div class="kat-left">
+          <div class="kat-code">AR</div>
+          <div>
+            <div class="kat-name">Air Rifle</div>
+            <div class="kat-sub">WRABF HR/LR 25M &middot; IMSSU Multirange</div>
+          </div>
+        </div>
+        <div class="kat-arrow">&rarr;</div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ============ JUKNIS ============ -->
+  <section class="section" id="juknis">
+    <div class="section-head">
+      <span class="tag">02</span>
+      <h2>Petunjuk Teknis</h2>
+    </div>
+    <div class="juknis-list">
+      <a class="juknis-item" href="juknis/juknis-senapan.pdf" target="_blank" rel="noopener">
+        <span>Juknis Senapan</span><span class="dl">PDF &darr;</span>
+      </a>
+      <a class="juknis-item" href="juknis/juknis-pistol.pdf" target="_blank" rel="noopener">
+        <span>Juknis Pistol Eksekutif &amp; Duel/VIP</span><span class="dl">PDF &darr;</span>
+      </a>
+      <a class="juknis-item" href="juknis/juknis-ipsc.pdf" target="_blank" rel="noopener">
+        <span>Juknis Tembak Reaksi IPSC Level II</span><span class="dl">PDF &darr;</span>
+      </a>
+      <a class="juknis-item" href="juknis/juknis-airrifle.pdf" target="_blank" rel="noopener">
+        <span>Juknis Air Rifle</span><span class="dl">PDF &darr;</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ============ ADMIN ============ -->
+  <section class="section" id="admin">
+    <div class="section-head">
+      <span class="tag">03</span>
+      <h2>Hubungi Admin</h2>
+    </div>
+    <div class="admin-row">
+      <a class="admin-btn" href="https://wa.me/6281235393767" target="_blank" rel="noopener">
+        <span class="nm">Dedi</span>
+        <span class="num">0812-3539-3767</span>
+      </a>
+      <a class="admin-btn" href="https://wa.me/6281285838704" target="_blank" rel="noopener">
+        <span class="nm">Rizky</span>
+        <span class="num">0812-8583-8704</span>
+      </a>
+    </div>
+  </section>
+
+  <div class="notice">
+    <b>Pendaftaran online ditutup 18 September pukul 00.00 WIB.</b> Pendaftaran on-the-spot (OTS) dibuka kembali di lokasi mulai pukul 06.00 WIB pada hari yang sama.
+  </div>
+
+</div>
+
+<footer>PRAKASA SHOOTING CLUB &middot; CILODONG, DEPOK</footer>
+
+</body>
+</html>
