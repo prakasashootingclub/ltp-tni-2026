@@ -112,6 +112,10 @@
   }
   .kat-card:hover{ border-color:var(--brass-dim); background:#22261a; }
   .kat-card:focus-visible{ outline:2px solid var(--brass); outline-offset:2px; }
+  .kat-card.closed{
+    opacity:.5; cursor:not-allowed; pointer-events:none;
+  }
+  .kat-card.closed:hover{ border-color:var(--line); background:var(--bg-panel); }
   .kat-left{display:flex; align-items:center; gap:14px;}
   .kat-code{
     font-family:'IBM Plex Mono', monospace;
@@ -293,6 +297,35 @@
 </div>
 
 <footer>PRAKASA SHOOTING CLUB &middot; CILODONG, DEPOK</footer>
+
+<script>
+  // Matikan link/tombol "Daftar" per kategori begitu lewat batas waktu
+  // pendaftaran online -- supaya orang tidak nyasar ke Google Form yang
+  // (sudah) berhenti nerima respons, tanpa penjelasan. Waktu dibandingkan
+  // sebagai instant absolut (new Date() vs new Date("...+07:00")), jadi
+  // hasilnya benar di jam berapa pun timezone HP pengunjung diset --
+  // tidak bergantung timezone lokal perangkat mereka.
+  (function () {
+    var BATAS_TUTUP_ONLINE = new Date("2026-09-17T12:00:00+07:00");
+    if (new Date() < BATAS_TUTUP_ONLINE) return;
+
+    document.querySelectorAll(".kat-card").forEach(function (a) {
+      a.classList.add("closed");
+      a.removeAttribute("href");
+      a.removeAttribute("target");
+      a.setAttribute("aria-disabled", "true");
+      var arrow = a.querySelector(".kat-arrow");
+      if (arrow) arrow.textContent = "Ditutup";
+      var sub = a.querySelector(".kat-sub");
+      if (sub) sub.textContent = "Pendaftaran online sudah ditutup";
+    });
+
+    var notice = document.querySelector(".notice");
+    if (notice) {
+      notice.innerHTML = "<b>Pendaftaran online SUDAH DITUTUP.</b> Pendaftaran on-the-spot (OTS) dibuka di lokasi mulai pukul 06.00 WIB pada 18 September.";
+    }
+  })();
+</script>
 
 </body>
 </html>
