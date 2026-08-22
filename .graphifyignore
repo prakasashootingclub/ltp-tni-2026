@@ -1,0 +1,8 @@
+.env
+*.key
+*credentials*
+*secret*
+*cookies*
+.clasp.json
+qr/
+juknis/
