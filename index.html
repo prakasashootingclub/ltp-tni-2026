@@ -184,7 +184,7 @@
 <div class="wrap">
 
   <div class="notice">
-    <b>Pendaftaran online IPSC Level II dan Non IPSC sudah ditutup.</b> Air Rifle, Senapan, Pistol (Eksekutif), dan Falling Plate masih bisa daftar online, atau langsung OTS di lokasi.
+    <b>Pendaftaran online SEMUA kategori sudah ditutup.</b> Terima kasih atas partisipasi Anda.
   </div>
 
   <div class="notice">
@@ -342,7 +342,8 @@
     if (new Date() < BATAS_TUTUP_ONLINE) return;
 
     // 20 September 2026 (permintaan Kang): Air Rifle DIBUKA kembali, Falling Plate sempat ditutup lalu DIBUKA lagi.
-    var KATEGORI_TANPA_OTS = ["ipsc", "nonipsc"];
+    // 20 September 2026 (permintaan Kang): SEMUA link pendaftaran ditutup.
+    var KATEGORI_TANPA_OTS = ["senapan", "pistol", "fallingplate", "ipsc", "nonipsc", "airrifle"];
 
     document.querySelectorAll(".kat-card").forEach(function (a) {
       if (KATEGORI_TANPA_OTS.indexOf(a.dataset.kategori) === -1) return;
@@ -358,7 +359,7 @@
 
     var notice = document.querySelector(".notice");
     if (notice) {
-      notice.innerHTML = "<b>Pendaftaran online IPSC Level II dan Non IPSC SUDAH DITUTUP.</b> Air Rifle, Senapan, Pistol (Eksekutif), dan Falling Plate masih bisa daftar online, atau langsung OTS di lokasi.";
+      notice.innerHTML = "<b>Pendaftaran online SEMUA kategori SUDAH DITUTUP.</b> Terima kasih atas partisipasi Anda.";
     }
   })();
 </script>
